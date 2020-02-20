@@ -1,0 +1,44 @@
+import java.util.Scanner;
+import java.util.Arrays;
+class Main {
+  static int no_of_chars=256;
+  static boolean permutation(char str1[],char str2[])
+  {
+    int count1[]=new int[no_of_chars];
+    Arrays.fill(count1,0);
+    int count2[]=new int[no_of_chars];
+    Arrays.fill(count2,0);
+    int i;
+
+    for(i=0;i<str1.length && i<str2.length;i++)
+    {
+      count1[str1[i]]++;
+      count2[str2[i]]++;
+    }
+    if(str1.length!=str2.length)
+    return false;
+    for(i=0;i<no_of_chars;i++)
+    {
+      if(count1[i]!=count2[i])
+      return false;
+    }
+    return true;
+
+
+  }
+
+  public static void main(String[] args) {
+    //String str1,str2;
+    Scanner sc=new Scanner(System.in);
+    char str1[]=sc.next().toCharArray();
+    char str2[]=sc.next().toCharArray();
+    if(permutation(str1,str2))
+    {
+      System.out.println("the strings are permuted");
+    }
+    else{
+      System.out.println("strings are not permuted");
+    }
+
+  }
+}
